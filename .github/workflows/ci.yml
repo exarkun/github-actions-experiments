@@ -20,4 +20,4 @@ jobs:
     steps:
       - name: "Show me some things"
         run: |
-          echo ${{ toJSON(github) }}
+          echo '${{ toJSON(github) }}'
