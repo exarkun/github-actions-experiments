@@ -21,3 +21,7 @@ jobs:
       - name: "Show me some things"
         run: |
           echo '${{ toJSON(github) }}'
+
+      - name: "Show candidate concurrency group"
+        run: |
+          echo ${{ github.head_ref || join([github.run_number, github.run_attempt]) }}
