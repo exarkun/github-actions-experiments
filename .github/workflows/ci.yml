@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+
+jobs:
+  coverage:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+        python-version:
+          - 3.9
+
+    steps:
+      - name: "Show me some things"
+        run: |
+          echo ${{ github.head_ref || github.job }}
