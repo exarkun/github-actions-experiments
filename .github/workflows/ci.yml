@@ -24,4 +24,4 @@ jobs:
 
       - name: "Show candidate concurrency group"
         run: |
-          echo ${{ github.head_ref || join([github.run_number, github.run_attempt]) }}
+          echo ${{ github.head_ref || format('{0}-{1}', github.run_number, github.run_attempt) }}
