@@ -6,6 +6,9 @@ on:
       - "master"
   pull_request:
 
+concurrency:
+  group: "${{ github.head_ref || format('{0}-{1}', github.run_number, github.run_attempt) }}"
+
 jobs:
   coverage:
     runs-on: ${{ matrix.os }}
@@ -25,3 +28,7 @@ jobs:
       - name: "Show candidate concurrency group"
         run: |
           echo ${{ github.head_ref || format('{0}-{1}', github.run_number, github.run_attempt) }}
+
+      - name: "Be slow"
+        run: |
+          sleep 60
